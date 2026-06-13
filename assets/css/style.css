@@ -66,12 +66,6 @@ p {
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
 }
 
-.navbar-collapse {
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-}
-
 .navbar-nav {
     display: flex;
     flex-direction: row;
@@ -90,7 +84,7 @@ p {
     transition: color 0.2s ease;
 }
 
-.navbar-nav .nav-link:hover { color: var(--accent) !important; text-decoration: none; }
+.navbar-nav .nav-link:hover { color: var(--gray) !important; text-decoration: none; }
 
 .contact-button {
     padding: 10px 22px;
@@ -113,16 +107,26 @@ p {
 }
 
 .navbar-toggler { border: none; }
-.navbar-toggler:focus { outline: none; }
+.navbar-toggler:focus { outline: none; box-shadow: none; }
 
 .navbar-light .navbar-brand img { height: 120px; width: auto; }
 
+/* Mobile: explicitly control collapse visibility so Bootstrap can toggle it cleanly */
 @media (max-width: 991px) {
     .navbar { height: auto; padding: 10px 20px; flex-wrap: wrap; }
     .navbar-brand img { height: 80px; }
-    .navbar-collapse { flex-direction: column; width: 100%; }
+
+    .navbar-collapse {
+        display: none;
+        width: 100%;
+    }
+    .navbar-collapse.show {
+        display: flex;
+        flex-direction: column;
+    }
+
     .navbar-nav { flex-direction: column; align-items: center; width: 100%; padding: 10px 0; }
-    .navbar-nav .nav-item { margin: 5px 0; }
+    .navbar-nav .nav-item { margin: 6px 0; }
     .contact-button { margin: 8px 0 12px; }
 }
 

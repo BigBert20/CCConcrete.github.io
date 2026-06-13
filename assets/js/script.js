@@ -36,13 +36,13 @@ function reveal() {
 
 // Close mobile menu when a nav link is clicked
 document.addEventListener('DOMContentLoaded', function () {
-    const navLinks = document.querySelectorAll('.navbar-nav .nav-link, .navbar-nav .contact-button');
-    const navbarCollapse = document.querySelector('.navbar-collapse');
+    var navLinks = document.querySelectorAll('.navbar-nav .nav-link, .navbar-nav .contact-button');
+    var navbarCollapse = document.querySelector('.navbar-collapse');
 
-    navLinks.forEach(link => {
+    navLinks.forEach(function (link) {
         link.addEventListener('click', function () {
             if (navbarCollapse.classList.contains('show')) {
-                navbarCollapse.classList.remove('show');
+                $(navbarCollapse).collapse('hide');
             }
         });
     });
