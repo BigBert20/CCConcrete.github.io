@@ -34,16 +34,21 @@ function reveal() {
     }
 }
 
-// Close mobile menu when a nav link is clicked
+// Mobile navbar toggle (custom — bypasses Bootstrap collapse plugin entirely)
 document.addEventListener('DOMContentLoaded', function () {
-    var navLinks = document.querySelectorAll('.navbar-nav .nav-link, .navbar-nav .contact-button');
-    var navbarCollapse = document.querySelector('.navbar-collapse');
+    var toggler = document.getElementById('navToggler');
+    var menu = document.getElementById('collapsibleNavId');
+    if (!toggler || !menu) return;
 
-    navLinks.forEach(function (link) {
+    // Hamburger opens/closes the menu
+    toggler.addEventListener('click', function () {
+        menu.classList.toggle('open');
+    });
+
+    // Tapping any link inside the menu closes it
+    menu.querySelectorAll('a').forEach(function (link) {
         link.addEventListener('click', function () {
-            if (navbarCollapse.classList.contains('show')) {
-                $(navbarCollapse).collapse('hide');
-            }
+            menu.classList.remove('open');
         });
     });
 });

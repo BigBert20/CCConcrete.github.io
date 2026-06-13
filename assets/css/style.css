@@ -111,16 +111,17 @@ p {
 
 .navbar-light .navbar-brand img { height: 120px; width: auto; }
 
-/* Mobile: explicitly control collapse visibility so Bootstrap can toggle it cleanly */
+/* Mobile navbar */
 @media (max-width: 991px) {
     .navbar { height: auto; padding: 10px 20px; flex-wrap: wrap; }
     .navbar-brand img { height: 80px; }
 
-    .navbar-collapse {
+    /* Use ID selector (beats any Bootstrap class rule) to hide menu by default */
+    #collapsibleNavId {
         display: none;
         width: 100%;
     }
-    .navbar-collapse.show {
+    #collapsibleNavId.open {
         display: flex;
         flex-direction: column;
     }
